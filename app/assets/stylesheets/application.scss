@@ -1,0 +1,39 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import "custom_styles";
+//@import "/\*";
+
+@mixin btn_color($class, $color) {
+  .btn-#{$class}, .btn-outline-#{$class}:hover, .btn-outline-#{$class}:focus, .btn-outline-#{$class}:active{
+    background-color: $color;
+    border-color: $color;
+    box-shadow: none;
+  }
+  .btn-#{$class}:hover, .btn-#{$class}:focus, .btn-#{$class}:active, .btn-outline-#{$class}{
+    background-color: transparent;
+    border-color: $color;
+    color: $color;
+    box-shadow: none;
+  }
+}
+
+@include btn_color(primary, $custom-primary-color);
+@include btn_color(secondary, $custom-secondary-color);
+
+a{
+  color: $custom-primary-color;
+  text-decoration: none;
+  &:hover, &:focus{
+    color: $custom-primary-color;
+    text-decoration: underline;
+  }
+}
+
+.top-12{
+  top: 12%;
+  position: relative;
+}

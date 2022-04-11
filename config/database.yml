@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  password: defaultpw
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development: &development
+  <<: *default
+  database: monitor_development
+  url: <%= ENV.fetch("DATABASE_URL") { "postgres://localhost:5432" } %>
+test:
+  <<: *default
+  database: monitor_test
+production:
+  <<: *default
+  database: monitor_production
+  url: <%= ENV['DATABASE_URL'] %>

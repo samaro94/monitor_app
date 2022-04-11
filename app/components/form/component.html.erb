@@ -1,0 +1,34 @@
+<div class="form-container card">
+  <div class="card-header"><%= @title %></div>
+
+  <div class="card-body">
+
+    <%= form_for(@resource, url: @url, html: {class: "row g-3"}) do |f| %>
+      <% @fields.each do |field| %>
+        <div class="mb-2">
+          <% if !field[:label].blank? %>
+            <%= f.label field[:label], class:"form-label mb-0" %>
+          <% end %>
+
+          <% if field[:type] == "checkbox" %>
+            <%= f.check_box field[:name], class:"top-12" %>
+          <% elsif field[:type] == "link" %>
+            <%= link_to field[:name], field[:path] %>
+          <% else %>
+            <%= f.text_field field[:name], class: "form-control", autocomplete: field[:autocomplete], type: field[:type], placeholder: field[:placeholder] %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <% if !@cancel_path.blank? %>
+          <%= link_to @cancel[:text], @cancel[:url], class: "btn #{$styles.button_line}-secondary float-start" %>
+        <% end %>
+
+        <%= f.submit @submit[:text], class: "btn float-end #{$styles.button_line}-primary" %>
+      </div>
+    <% end %>
+
+  </div>
+
+</div>
