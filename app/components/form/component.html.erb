@@ -1,13 +1,13 @@
 <div class="form-container card">
-  <div class="card-header"><%= @title %></div>
+  <h3 class="text-center py-3 secondary-color"><%= @title %></h3>
 
   <div class="card-body">
 
     <%= form_for(@resource, url: @url, html: {class: "row g-3"}) do |f| %>
       <% @fields.each do |field| %>
-        <div class="mb-2">
+        <div class="my-2">
           <% if !field[:label].blank? %>
-            <%= f.label field[:label], class:"form-label mb-0" %>
+            <%= f.label field[:label], class:"form-label mb-0 secondary-color" %>
           <% end %>
 
           <% if field[:type] == "checkbox" %>
@@ -22,10 +22,10 @@
 
       <div class="actions">
         <% if !@cancel_path.blank? %>
-          <%= link_to @cancel[:text], @cancel[:url], class: "btn #{$styles.button_line}-secondary float-start" %>
+          <%= link_to @cancel[:text], @cancel[:url], class: "btn btn-secondary float-start" %>
         <% end %>
 
-        <%= f.submit @submit[:text], class: "btn float-end #{$styles.button_line}-primary" %>
+        <%= f.submit @submit[:text], class: "btn float-end btn-primary" %>
       </div>
     <% end %>
 

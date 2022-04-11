@@ -1,0 +1,12 @@
+<br><br>
+<div class="row justify-content-md-center">
+  <div class="col-sm-offset-4 col-sm-4">
+    <%= render Form::Component.new(
+        title: "Sign in",
+        resource: resource,
+        url: session_path(resource_name),
+        fields: login_fields,
+        submit: {text:"Log in"}
+    ) %>
+  </div>
+</div>
