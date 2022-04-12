@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light">
+  <div class="container-fluid">
+    <img src="/assets/logo.svg" class="img-fluid nav-logo" alt="...">
+    <form class="d-flex">
+        <button type="button" class="btn btn-outline-primary mx-4">
+            <%= icon_tag("user-circle") %>
+            <%= current_user.decorate.full_name %>
+        </button>
+
+        <%= link_to destroy_user_session_path, :class => "btn btn-primary ml-4 secondary-color", :method => :delete do %>
+            <%= icon_tag("arrow-circle-right") %>
+            Sign out
+        <% end %>
+    </form>
+  </div>
+</nav>

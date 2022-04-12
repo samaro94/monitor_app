@@ -8,12 +8,12 @@
 //@import "/\*";
 
 @mixin btn_color($class, $color) {
-  .btn-#{$class}, .btn-outline-#{$class}:hover, .btn-outline-#{$class}:focus, .btn-outline-#{$class}:active{
+  .btn-#{$class}, .btn-#{$class}:hover, .btn-#{$class}:focus, .btn-#{$class}:active, .btn-#{$class}:active:focus, .btn-#{$class}:disabled{
     background-color: $color;
     border-color: $color;
     box-shadow: none;
   }
-  .btn-#{$class}:hover, .btn-#{$class}:focus, .btn-#{$class}:active, .btn-outline-#{$class}{
+  .btn-outline-#{$class}, .btn-outline-#{$class}:hover, .btn-outline-#{$class}:focus, .btn-outline-#{$class}:active, .btn-outline-#{$class}:active:focus, .btn-outline-#{$class}:disabled{
     background-color: transparent;
     border-color: $color;
     color: $color;
@@ -38,10 +38,19 @@ a{
   position: relative;
 }
 
-.primary-color{
+.primary-color, .primary-color:active, .primary-color:focus, .primary-color:hover{
   color: $custom-primary-color;
 }
 
-.secondary-color{
+.secondary-color, .secondary-color:active, .secondary-color:focus, .secondary-color:hover{
   color: $custom-secondary-color;
+}
+
+nav{
+  box-shadow: $custom-card-shadow;
+  background-color: white;
+}
+
+a.btn{
+  text-decoration: unset;
 }
