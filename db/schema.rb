@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_155203) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_12_025747) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "service_blocks", force: :cascade do |t|
+    t.string "week_day"
+    t.datetime "from"
+    t.datetime "to"
+    t.bigint "service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["service_id"], name: "index_service_blocks_on_service_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.string "name"
+    t.text "details"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,4 +50,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_11_155203) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "service_blocks", "services"
 end

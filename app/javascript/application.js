@@ -3,4 +3,4 @@
 // import "controllers"
 import "popper"
 import "bootstrap"
-import "controllers/component_controller"
+import "packs/component_controller"
