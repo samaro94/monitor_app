@@ -2,11 +2,11 @@
 <div class="row justify-content-md-center">
   <div class="col-sm-offset-4 col-sm-4">
     <%= render Form::Component.new(
-        title: "Sign up",
+        title: I18n.t('devise.sign_up'),
         resource: resource,
         url: registration_path(resource_name),
         fields: registration_fields,
-        submit: {text:"Sign up"}
+        submit: {text: I18n.t('devise.sign_up')}
     ) %>
   </div>
 </div>

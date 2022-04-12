@@ -12,7 +12,6 @@
 
   <body>
     <%= render "/layouts/common/navbar" if !current_user.blank? %>
-    <%= link_to "Sign out", destroy_user_session_path %>
     <%= yield %>
   </body>
 </html>

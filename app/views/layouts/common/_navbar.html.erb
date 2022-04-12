@@ -9,7 +9,7 @@
 
         <%= link_to destroy_user_session_path, :class => "btn btn-primary ml-4 secondary-color", :method => :delete do %>
             <%= icon_tag("arrow-circle-right") %>
-            Sign out
+            <%= I18n.t('devise.sign_out') %>
         <% end %>
     </form>
   </div>

@@ -3,8 +3,8 @@ module Users::SessionsHelper
 
   def login_fields
     fields = [
-        {name: "email", type: "email", autocomplete: "email", label: "Email"},
-        {name: "password", type: "password", autocomplete: "current-password", label: "Password"}
+        {name: "email", type: "email", autocomplete: "email", label: I18n.t('email')},
+        {name: "password", type: "password", autocomplete: "current-password", label: I18n.t('devise.password')}
     ]
 
     fields += devise_shared_links

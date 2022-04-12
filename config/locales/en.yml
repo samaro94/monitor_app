@@ -30,4 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  email: Email
+  name: Name
+  lastname: Lastname
+  devise:
+    sign_out: Sign out
+    sign_in: Sign in
+    sign_up: Sign up
+    password: Password
+    password_confirmation: Password confirmation
+    remember_me: Remember me
+    forgot_password: Forgot your password?
+    confirmation_instructions: Didn't receive confirmation instructions?
+    unlock_instructions: Didn't receive unlock instructions?
+
