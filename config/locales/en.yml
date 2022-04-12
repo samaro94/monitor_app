@@ -30,9 +30,24 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  id: ID
+  aasm_state: Status
   email: Email
   name: Name
   lastname: Lastname
+  search: Search
+  filter: Filtrar
+  services_list: List of services
+  add_service: Add service
+  new_service: New service
+  create: Create
+  details: Details
+  actions: Actions
+  edit: Edit
+  delete: Delete
+  deactivate: Disable
+  change_status: Change status
+  modify_turns: Modify turns
   devise:
     sign_out: Sign out
     sign_in: Sign in

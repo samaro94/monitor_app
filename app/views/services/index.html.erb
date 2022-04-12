@@ -1,18 +1,51 @@
-<p style="color: green"><%= notice %></p>
+<div id="dinamic_table" class="mx-2 my-2">
+  
+  <h2><%= I18n.t('services_list') %></h2>
+  <div class="divider"></div>
 
-<h1>Services</h1>
+  <div class="row my-4">
 
-<div id="services">
-  <% @services.each do |service| %>
-    <%= render service %>
-    <p>
-      <%= link_to "Show this service", service %>
-    </p>
-  <% end %>
+    <%# Search bar for filter %>
+    <div class="d-flex col-6">
+      <div class="input-group me-2 col-6">
+        <span class="input-group-text"><%= icon_tag('search') %></span>
+        <input id="input-search" class="me-2 col-6 text-center" type="search" placeholder="Search" aria-label="Search">
+      </div>
+      <button class="btn btn-primary secondary-color col-3" @click="makeSearch">
+        <%= icon_tag('search') %>
+        <%= I18n.t('filter') %>
+      </button>
+    </div>
+
+    <div class="d-flex col-6 justify-content-end">
+      <%= link_to new_service_path, :class => "btn btn-primary secondary-color col-3" do %>
+        <%= icon_tag('pencil') %>
+        <%= I18n.t('add_service') %>
+      <% end %>
+    </div>
+
+  </div>
+
+
+  <div id="services" v-if="data.length != 0">
+    <table class="table table-bordered border-secondary">
+      <thead>
+        <tr>
+          <th><%= I18n.t('actions') %></th>
+          <th v-for="column in columns">{{ column }}</th>
+        </tr>
+      </thead>
+      <tbody class="border-top-0">
+        <tr v-for="row in data">
+          <td style="width: 20%;">
+            <a class="btn me-2" data-bs-toggle="tooltip" data-bs-placement="top" :title="action.label"
+              :class="action.style" v-for="action in actions" v-html="action.icon" @click="buttonAction(action.url, action.type, row.id)">
+            </a>
+          </td>
+          <td v-for="col in row">{{ col }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
-
-<%= link_to "New service", new_service_path %>
-
-<container id="dinamic_table">
-  <h2>{{ title }}</h2>
-</container>

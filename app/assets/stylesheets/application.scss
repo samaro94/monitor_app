@@ -10,12 +10,12 @@
 @mixin btn_color($class, $color) {
   .btn-#{$class}, .btn-#{$class}:hover, .btn-#{$class}:focus, .btn-#{$class}:active, .btn-#{$class}:active:focus, .btn-#{$class}:disabled{
     background-color: $color;
-    border-color: $color;
+    border: 1px solid $color;
     box-shadow: none;
   }
   .btn-outline-#{$class}, .btn-outline-#{$class}:hover, .btn-outline-#{$class}:focus, .btn-outline-#{$class}:active, .btn-outline-#{$class}:active:focus, .btn-outline-#{$class}:disabled{
     background-color: transparent;
-    border-color: $color;
+    border: 1px solid $color;
     color: $color;
     box-shadow: none;
   }
@@ -53,4 +53,47 @@ nav{
 
 a.btn{
   text-decoration: unset;
+}
+
+.divider {
+    background-color: $custom-secondary-color;
+    height: 2px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+input:not(.form-control), input:not(.form-control):focus-visible{
+  background-color: transparent;
+  border: 1px solid $custom-primary-color;
+  color: $custom-secondary-color;
+  box-shadow: none;
+  border-radius: $custom-border-radius;
+  outline: unset;
+  .input-group &{
+    border-left: unset;
+  }
+}
+
+.btn{
+  text-align: center !important;
+  svg{
+    float: left;
+  }
+  &:not(.without-label) svg{
+    margin-right: 10px;
+  }
+}
+
+.input-group{
+  display: contents;
+  .input-group-text{
+    background-color: transparent;
+    border: 1px solid $custom-primary-color;
+    border-right: unset;
+  }
+}
+
+.border-secondary{
+  border-color: $custom-secondary-color !important;
+  color: $custom-secondary-color;
 }

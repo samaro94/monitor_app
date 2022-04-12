@@ -12,6 +12,7 @@ module MonitorApp
     config.load_defaults 7.0
 
     I18n.default_locale = :en
+    config.i18n.available_locales = [:en, :es]
 
     # Configuration for the application, engines, and railties goes here.
     #
