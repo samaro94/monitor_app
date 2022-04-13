@@ -1,0 +1,54 @@
+<div id="details" class="mx-2 my-2">
+  
+  <h2><%= I18n.t('availability') %></h2>
+  <div class="divider"></div>
+
+  <div class="row my-4">
+    <div class="d-flex offset-6 col-6 justify-content-end">
+        <button v-if="editable" class= "btn btn-primary secondary-color col-3" @click="SaveChanges()">
+            <%= icon_tag('pencil') %>
+            <%= I18n.t('save_changes') %>
+        </button>
+        <button v-else class= "btn btn-primary secondary-color col-3" @click="makeEditable()">
+            <%= icon_tag('pencil') %>
+            <%= I18n.t('edit_availability') %>
+        </button>
+    </div>
+  </div>
+
+
+  <div v-if="data.length != 0">
+
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button v-for="day in days" class="nav-link active" data-bs-toggle="tab" :data-bs-target="'#tab-'+day" type="button" role="tab" aria-selected="false" @click="changeTab($event)">{{ day }}</button>
+    </div>
+
+    <div class="tab-content" id="nav-tabContent">
+        <div v-for="(table, day) in data" class="tab-pane fade show active" :id="'tab-'+day" role="tabpanel">
+            <h4>{{ day }}</h4>
+
+            <table class="table table-bordered border-secondary">
+                <thead>
+                    <tr>
+                    <th v-for="col in headers">{{ col }}</th>
+                    </tr>
+                </thead>
+                <tbody class="border-top-0">
+                    <tr v-for="(row, index_hour) in table">
+                        <td v-for="(col, index) in row">
+                            <template v-if="index == 'hour'">
+                                {{ col }}
+                            </template>
+                            <div v-else class="form-check">
+                                <input type="checkbox" id="checkbox" @click="toggleChecked($event, day, index_hour, index)" disabled :data-checked="col">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+  </div>
+
+</div>

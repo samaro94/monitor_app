@@ -49,6 +49,10 @@ en:
   deactivate: Disable
   change_status: Change status
   modify_turns: Modify turns
+  blocks: Blocks
+  availability: Availability
+  edit_availability: Edit availability
+  save_changes: Save changes
   devise:
     sign_out: Sign out
     sign_in: Sign in

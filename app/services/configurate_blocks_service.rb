@@ -48,6 +48,6 @@ class ConfigurateBlocksService
     private
 
     def self.week_days
-        ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+        WeekDaysService.get_days
     end
 end

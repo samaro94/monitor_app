@@ -52,8 +52,6 @@ if (document.querySelector(id) != null) {
                 });
             },
             async sendData() {
-                console.log(this.service_id)
-                console.log(this.blocks)
                 var url = '/service_blocks/update/' + this.service_id
 
                 return await fetch(url, {

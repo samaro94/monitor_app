@@ -29,6 +29,7 @@ if (document.querySelector(id) != null) {
                     this.columns = json.columns;
                     this.actions = json.actions;
                     this.data = json.data;
+                    console.log(json.data)
                 }).catch(error => console.log(error));
             },
             makeSearch() {
