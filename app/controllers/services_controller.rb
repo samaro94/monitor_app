@@ -7,6 +7,7 @@ class ServicesController < ApplicationController
   # GET /services or /services.json
   def index
     @services = Service.all
+    @services_path = services_path
   end
 
   # GET /services/1 or /services/1.json
@@ -20,6 +21,7 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
+    @services_path = service_path(@service)
   end
 
   # POST /services or /services.json
@@ -53,6 +55,7 @@ class ServicesController < ApplicationController
   def get_list
     header = ["id", "name", "aasm_state", "details"]
     services = Service.all.select(header).order(id: :desc)
+    services = services.search(params[:search]) if !params[:search].blank?
     columns = header.map{|x| I18n.t(x)}
 
     render json: { columns: columns, data: services, actions: get_actions }

@@ -4,7 +4,7 @@
     <%= render Form::Component.new(
         title: I18n.t('new_service'),
         resource: @service,
-        url: services_path,
+        url: @services_path,
         fields: services_fields(@service),
         submit: {text: I18n.t('create')},
         cancel: {text: I18n.t('cancel'), url: services_path}

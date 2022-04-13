@@ -1,5 +1,8 @@
 class Service < ApplicationRecord
     has_many :service_blocks
+    include PgSearch::Model
+
+    pg_search_scope :search, against: [:id, :name]
 
     include AASM
     aasm whiny_transitions: false do
