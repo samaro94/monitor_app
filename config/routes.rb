@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'home#index'
 
-  resources :shifts, only: :index
+  # resources :shifts, only: :index do
+  #   get 'service', action: "service"
+  # end
+  get '/shifts/:shift_type', to: 'shifts#index'
   get '/get_shifts/:shift_type', to: 'shifts#get_list'
   post '/shifts/modify_all/', to: 'shifts#modify_all'
 

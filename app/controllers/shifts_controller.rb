@@ -3,14 +3,14 @@ class ShiftsController < ApplicationController
   protect_from_forgery with: :null_session, only: :update
 
   def index
-
+    @shift_type = params[:shift_type]
   end
 
   def get_list
     get_users
     get_service_hours
     @header = @users.decorate.map{|x| x.full_name}
-    @data = ShiftDataService.get_data(params[:type], @users, @service_hours)
+    @data = ShiftDataService.get_data(params[:shift_type], @users, @service_hours, params[:service_id])
 
     render json: {header: [I18n.t('blocks')] + @header, data: @data}
   end
@@ -25,6 +25,11 @@ class ShiftsController < ApplicationController
       render json:{ message: "Error", code: 500}, status: 500
     end
   end
+
+  # def service
+  #   @shift_type = "services"
+  #   render "index.html.erb"
+  # end
 
   private
 

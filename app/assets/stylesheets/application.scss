@@ -97,3 +97,12 @@ input:not(.form-control):not([type='submit']), input:not(.form-control):not([typ
   border-color: $custom-secondary-color !important;
   color: $custom-secondary-color;
 }
+
+.nav-link{
+      border-bottom: 1px solid $custom-secondary-color !important;
+      border-color: $custom-secondary-color !important;
+}
+.nav-link.selected{
+  border-top: 3px solid $custom-primary-color !important;
+  border-bottom: unset !important;
+}

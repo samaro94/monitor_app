@@ -1,6 +1,6 @@
-<div id="details" class="mx-2 my-2" data-type="<%= @shift_type %>">
+<div id="details" class="mx-2 my-2" data-type="availability">
   
-  <h2><%= I18n.t(@shift_type) %></h2>
+  <h2><%= I18n.t('availability') %></h2>
   <div class="divider"></div>
 
   <div class="row my-4">
@@ -20,16 +20,11 @@
   <div v-if="data.length != 0">
 
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <button v-for="day in tabs" class="nav-link active col" data-bs-toggle="tab" :data-bs-target="'#tab-'+day" 
-                type="button" role="tab" aria-selected="false" @click="changeTab($event)">
-                {{ day }}
-        </button>
+        <button v-for="day in days" class="nav-link active" data-bs-toggle="tab" :data-bs-target="'#tab-'+day" type="button" role="tab" aria-selected="false" @click="changeTab($event)">{{ day }}</button>
     </div>
 
     <div class="tab-content" id="nav-tabContent">
-        <br><br>
         <div v-for="(table, day) in data" class="tab-pane fade show active" :id="'tab-'+day" role="tabpanel">
-        
             <h4>{{ day }}</h4>
 
             <table class="table table-bordered border-secondary">
@@ -45,8 +40,7 @@
                                 {{ col }}
                             </template>
                             <div v-else class="form-check">
-                                <input v-if="editable" type="checkbox" id="checkbox" @click="toggleChecked($event, day, index_hour, index)" :data-checked="col">
-                                <span v-else> {{col ? 1 : ""}} </span>
+                                <input type="checkbox" id="checkbox" @click="toggleChecked($event, day, index_hour, index)" disabled :data-checked="col">
                             </div>
                         </td>
                     </tr>

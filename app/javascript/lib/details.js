@@ -8,7 +8,8 @@ if (document.querySelector(id) != null) {
         data() {
             return {
                 editable: false,
-                days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+                tabs: [],
+                // days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
                 // service_hours: [],
                 headers: [],
                 data: []
@@ -16,8 +17,7 @@ if (document.querySelector(id) != null) {
         },
         methods: {
             async getData(shift_type) {
-                console.log("get_data")
-                var url = '/get_shifts/' + shift_type
+                var url = '/get_shifts/' + shift_type + window.location.search
 
                 return await fetch(url, {
                     method: 'GET'
@@ -27,7 +27,6 @@ if (document.querySelector(id) != null) {
             toggleChecked(event, day, hour, index) {
                 event.target.toggleAttribute('checked')
                 this.data[day][hour][index] = event.target.hasAttribute('checked')
-                console.log(this.data[day])
             },
             changeTab(event) {
                 var tab = event.target.attributes['data-bs-target'].value;
@@ -35,12 +34,26 @@ if (document.querySelector(id) != null) {
                     element.setAttribute("style", "display: none")
                 })
                 document.querySelector(tab).setAttribute("style", "display: block")
+
+                document.querySelectorAll(".nav-link").forEach(element=>{
+                    element.classList.remove("selected")
+                })
+                event.target.classList.add("selected")
+            },
+            async setToEdit(){
+                this.editable = true
+                return true
             },
             makeEditable() {
-                document.querySelectorAll("input[type='checkbox']").forEach(element => {
-                    element.removeAttribute("disabled")
+                // document.querySelectorAll("input[type='checkbox']").forEach(element => {
+                //     element.removeAttribute("disabled")
+                // })
+                // (
+                this.setToEdit().then(() => {
+                    document.querySelectorAll("input[type='checkbox'][data-checked=true]").forEach(element => {
+                        element.setAttribute("checked", true)
+                    })
                 })
-                this.editable = true;
             },
             async SaveChanges() {
                 await fetch('/shifts/modify_all/', {
@@ -52,25 +65,29 @@ if (document.querySelector(id) != null) {
                 .then(response => response.json())
                 .then(json => {
                     this.editable = false;
-                    document.querySelectorAll("input[type='checkbox']").forEach(element => {
-                        element.setAttribute("disabled", true)
-                    })
+                    // document.querySelectorAll("input[type='checkbox']").forEach(element => {
+                    //     element.setAttribute("disabled", true)
+                    // })
                 }).catch(error => console.log(error));
             },
             mark_checked() {
-                console.log(document.querySelectorAll("input[type='checkbox'][data-checked=true]"))
-                document.querySelectorAll("input[type='checkbox'][data-checked=true]").forEach(element => {
-                    element.setAttribute("checked", true)
+                var tabs_content = document.querySelectorAll(".tab-pane")
+                tabs_content.forEach(element => {
+                    if (element != tabs_content[0]){
+                        element.setAttribute("style", "display: none")
+                    }
                 })
-                
             }
         },
         mounted: function () {
-            this.getData("availability")
+            var shift_type = document.querySelector(id).getAttribute("data-type")
+            this.getData(shift_type)
             .then(response => response.json())
             .then(json => {
                 this.data = json.data;
                 this.headers = json.header;
+                this.tabs = Object.keys(json.data);
+                console.log(json.data)
             })
             .then( json => {
                 this.mark_checked();
