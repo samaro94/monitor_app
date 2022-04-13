@@ -62,7 +62,7 @@ a.btn{
     margin: 15px 0;
 }
 
-input:not(.form-control), input:not(.form-control):focus-visible{
+input:not(.form-control):not([type='submit']), input:not(.form-control):not([type='submit']):focus-visible{
   background-color: transparent;
   border: 1px solid $custom-primary-color;
   color: $custom-secondary-color;

@@ -1,12 +1,1 @@
-<br><br>
-<div class="row justify-content-md-center">
-  <div class="col-sm-offset-4 col-sm-4">
-    <%= render Form::Component.new(
-        title: I18n.t('new_service'),
-        resource: @service,
-        url: services_path,
-        fields: services_fields,
-        submit: {text: I18n.t('create')}
-    ) %>
-  </div>
-</div>
+<%= render "form", service: @service %>

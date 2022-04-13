@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :service_blocks, only: :index do
-    get 'modify/:service_id', action: "modify"
-  end
+  resources :service_blocks, only: :index
+  get 'service_blocks/modify/:service_id', to: "service_blocks#modify"
+  post 'service_blocks/update/:service_id', to: "service_blocks#update"
 
   resources :services do
     collection do

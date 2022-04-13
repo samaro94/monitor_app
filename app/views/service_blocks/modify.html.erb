@@ -1,0 +1,24 @@
+<div id="edit_blocks" class="form-container">
+  <h3 class="text-center py-3 secondary-color"><%= @title %></h3>
+
+  <div class="card-body">
+
+    <template v-for="(block, title) in blocks">
+        <h5>{{ title }}</h5>
+        <div class="d-flex">
+            <label>From</label>
+            <input type="time" :value="block.from" @change="block.from = $event.target.value"></input>
+
+            <label>To</label>
+            <input type="time" :value="block.to" @change="block.to = $event.target.value"></input>
+        </div>
+    </template>
+
+    <div class="actions">
+        <a href="/services" class="btn btn-secondary">Cancelar</a>
+        <button @click="sendData()" class="btn btn-primary secondary-color">Actualizar</button>
+    </div>
+
+  </div>
+
+</div>

@@ -21,8 +21,8 @@
       <% end %>
 
       <div class="actions">
-        <% if !@cancel_path.blank? %>
-          <%= link_to @cancel[:text], @cancel[:url], class: "btn btn-secondary float-start" %>
+        <% if !@cancel.blank? %>
+          <%= link_to @cancel[:text], @cancel[:url], class: "btn btn-outline-primary float-start" %>
         <% end %>
 
         <%= f.submit @submit[:text], class: "btn float-end btn-primary" %>

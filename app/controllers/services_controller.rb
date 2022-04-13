@@ -67,8 +67,7 @@ class ServicesController < ApplicationController
       end
       render json:{ message: "Ok", code: 200}, status: 200
     rescue
-      binding.pry
-      render json:{ message: "Ok", code: 500}, status: 500
+      render json:{ message: "Error", code: 500}, status: 500
     end
 
   end
@@ -98,7 +97,7 @@ class ServicesController < ApplicationController
       return [
         {label: I18n.t('edit'), icon: icon_tag("pencil"), type: "render", url: "/services/:id/edit", method: "delete", style: "without-label btn-primary secondary-color"},
         {label: I18n.t('change_status'), icon: icon_tag("switch-horizontal"), type: "request", url: "/services/:id/change_status", method: "get", style: "without-label btn-primary secondary-color"},
-        {label: I18n.t('modify_turns'), icon: icon_tag("cog"), url: "/service_blocks/:id/modify_turns", type: "render", method: "get", style: "without-label btn-outline-primary"}
+        {label: I18n.t('modify_turns'), icon: icon_tag("cog"), url: "/service_blocks/modify/:id", type: "render", method: "get", style: "without-label btn-outline-primary"}
       ]
     end
 end

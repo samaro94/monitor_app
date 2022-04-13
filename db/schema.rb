@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_12_233308) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_13_024426) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "service_blocks", force: :cascade do |t|
     t.string "week_day"
-    t.datetime "from"
-    t.datetime "to"
+    t.time "from"
+    t.time "to"
     t.bigint "service_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
