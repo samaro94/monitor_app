@@ -37,17 +37,17 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # custom gems
-gem 'devise'
-gem 'aasm'
-gem 'awesome_print'
+gem 'devise' #for authentication
+gem 'aasm' #for configure states of model
+gem 'awesome_print' #for better print elements on console
 gem "dotenv-rails"
 gem 'bootstrap', '~> 5.1.3'
 gem "heroicon"
 gem 'jquery-rails'
-gem "view_component"
-gem 'draper'
-gem 'i18n'
-gem 'pg_search'
+gem "view_component" #for components
+gem 'draper' #for decorators
+gem 'i18n' #for translations
+gem 'pg_search' #for using search on models
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]

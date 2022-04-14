@@ -7,7 +7,7 @@
     <div class="row my-4">
         <div class="d-flex offset-6 col-6 justify-content-end">
             <button v-if="editable" class= "btn btn-primary secondary-color col-3" @click="SaveChanges()">
-                <%= icon_tag('pencil') %>
+                <%= icon_tag('save') %>
                 <%= I18n.t('save_changes') %>
             </button>
             <button v-else class= "btn btn-primary secondary-color col-3" @click="makeEditable()">
