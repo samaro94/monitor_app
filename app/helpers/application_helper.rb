@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def icon_tag(name)
-    return heroicon name, options: { width: 20 }
+  def icon_tag(name, width = 20)
+    return heroicon name, options: { width: width }
   end
 end

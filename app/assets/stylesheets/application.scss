@@ -98,11 +98,19 @@ input:not(.form-control):not([type='submit']), input:not(.form-control):not([typ
   color: $custom-secondary-color;
 }
 
-.nav-link{
+.nav-tabs .nav-link{
       border-bottom: 1px solid $custom-secondary-color !important;
       border-color: $custom-secondary-color !important;
 }
-.nav-link.selected{
+.nav-tabs .nav-link.selected{
   border-top: 3px solid $custom-primary-color !important;
   border-bottom: unset !important;
+}
+
+::maker, .dropdown::maker{
+  display: none;
+}
+
+.dropdown-toggle::after{
+  display: none !important;
 }

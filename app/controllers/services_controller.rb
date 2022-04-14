@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_service, only: %i[ show edit update destroy change_status ]
   include ActionView::Helpers::OutputSafetyHelper
   include Heroicon::Engine.helpers

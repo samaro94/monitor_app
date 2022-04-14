@@ -10,7 +10,7 @@ class ServiceBlocksController < ApplicationController
   end
 
   def modify
-    
+    @title = I18n.t('modify_service_blocks')
   end
 
   def update

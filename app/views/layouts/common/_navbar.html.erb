@@ -1,6 +1,20 @@
 <nav class="navbar navbar-light">
-  <div class="container-fluid">
+  <ul class="px-0 mx-0 my-0">
+    <li class="nav-item dropdown" style="width: 5%">
+      <a class="nav-link dropdown-toggle secondary-color" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= icon_tag("menu", "35")%>
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item text-capitalize" href="/services">services</a></li>
+        <li><a class="dropdown-item text-capitalize" href="/shifts/availability">Availability</a></li>
+        <li><a class="dropdown-item text-capitalize" href="#">Something else here</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="container-fluid" style="width: 95%">
+
     <img src="/assets/logo.svg" class="img-fluid nav-logo" alt="...">
+    
     <form class="d-flex">
         <button type="button" class="btn btn-outline-primary mx-4">
             <%= icon_tag("user-circle") %>

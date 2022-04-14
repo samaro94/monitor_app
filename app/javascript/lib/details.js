@@ -70,11 +70,19 @@ if (document.querySelector(id) != null) {
                     // })
                 }).catch(error => console.log(error));
             },
-            mark_checked() {
+            initializeTabs() {
                 var tabs_content = document.querySelectorAll(".tab-pane")
                 tabs_content.forEach(element => {
                     if (element != tabs_content[0]){
                         element.setAttribute("style", "display: none")
+                    }
+                })
+
+                var count = 1
+                document.querySelectorAll(".nav-link").forEach(element => {
+                    if (count === 1){
+                        element.classList.add("selected")
+                        count = count + 1
                     }
                 })
             }
@@ -90,7 +98,7 @@ if (document.querySelector(id) != null) {
                 console.log(json.data)
             })
             .then( json => {
-                this.mark_checked();
+                this.initializeTabs();
             }).catch(error => console.log(error));
             
         }

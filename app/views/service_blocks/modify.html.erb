@@ -1,24 +1,34 @@
-<div id="edit_blocks" class="form-container">
-  <h3 class="text-center py-3 secondary-color"><%= @title %></h3>
+<div class="row justify-content-md-center">
+  <div class="col-sm-offset-4 col-sm-4">
 
-  <div class="card-body">
+    <div id="edit_blocks" class="form-container card">
+      <h3 class="text-center py-3 secondary-color"><%= @title %> <%= @service.name %></h3>
 
-    <template v-for="(block, title) in blocks">
-        <h5>{{ title }}</h5>
-        <div class="d-flex">
-            <label>From</label>
-            <input type="time" :value="block.from" @change="block.from = $event.target.value"></input>
+      <div class="card-body">
 
-            <label>To</label>
-            <input type="time" :value="block.to" @change="block.to = $event.target.value"></input>
+        <template v-for="(block, title) in blocks">
+            <h5 class="text-capitalize">{{ title }}</h5>
+            <div class="d-flex justify-content-between mt-2 mb-4">
+                <div class="">
+                  <label>From</label>
+                  <input type="time" :value="block.from" @change="block.from = $event.target.value"></input>
+                </div>
+
+                <div class="">
+                  <label>To</label>
+                  <input type="time" :value="block.to" @change="block.to = $event.target.value"></input>
+                </div>
+            </div>
+        </template>
+
+        <div class="actions">
+            <a href="/services" class="btn btn-secondary float-start">Cancelar</a>
+            <button @click="sendData()" class="btn btn-primary secondary-color float-end">Actualizar</button>
         </div>
-    </template>
 
-    <div class="actions">
-        <a href="/services" class="btn btn-secondary">Cancelar</a>
-        <button @click="sendData()" class="btn btn-primary secondary-color">Actualizar</button>
+      </div>
+
     </div>
 
   </div>
-
 </div>

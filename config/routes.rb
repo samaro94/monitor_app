@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
   # Defines the root path route ("/")
-  root 'home#index'
+  root 'services#index'
 
   # resources :shifts, only: :index do
   #   get 'service', action: "service"
