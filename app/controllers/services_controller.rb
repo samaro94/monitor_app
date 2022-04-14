@@ -101,7 +101,9 @@ class ServicesController < ApplicationController
       return [
         {label: I18n.t('edit'), icon: icon_tag("pencil"), type: "render", url: "/services/:id/edit", method: "delete", style: "without-label btn-primary secondary-color"},
         {label: I18n.t('change_status'), icon: icon_tag("switch-horizontal"), type: "request", url: "/services/:id/change_status", method: "get", style: "without-label btn-primary secondary-color"},
-        {label: I18n.t('modify_turns'), icon: icon_tag("cog"), url: "/service_blocks/modify/:id", type: "render", method: "get", style: "without-label btn-outline-primary"}
+        {label: I18n.t('modify_turns'), icon: icon_tag("cog"), url: "/service_blocks/modify/:id", type: "render", method: "get", style: "without-label btn-primary secondary-color"},
+        {label: I18n.t('show_service_availability'), icon: icon_tag("calendar"), url: "/shifts/service_availability?service_id=:id", type: "render", method: "get", style: "without-label btn-outline-primary"},
+        {label: I18n.t('show_service_shifts'), icon: icon_tag("clipboard-list"), url: "/shifts/service_shifts?service_id=:id", type: "render", method: "get", style: "without-label btn-outline-primary"}
       ]
     end
 end

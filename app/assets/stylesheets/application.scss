@@ -46,6 +46,10 @@ a{
   color: $custom-secondary-color;
 }
 
+.dropdown-item:active, .dropdown-item:focus, .dropdown-item:hover{
+  background-color: $custom-primary-color;
+}
+
 nav{
   box-shadow: $custom-card-shadow;
   background-color: white;

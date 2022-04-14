@@ -1,0 +1,71 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+es:
+  id: ID
+  aasm_state: Estado
+  email: Correo
+  name: Nombre
+  lastname: Apellid
+  search: Buscar
+  filter: Filtrar
+  services_list: Listado de servicios
+  add_service: Agregar servicio
+  new_service: Nuevo servicio
+  create: Crear
+  cancel: Cancelar
+  details: Detalles
+  actions: Acciones
+  edit: Editar
+  delete: Eliminar
+  activate: Activar
+  deactivate: Desabilitar
+  change_status: Cambiar estado
+  modify_turns: Modificar turnos
+  blocks: Bloques
+  availability: Disponibilidad
+  edit_availability: Modificar disponibilidad
+  save_changes: Guardar cambios
+  service_details: Detalles del servicio
+  service_availability: Disponibilidad del servicio
+  service_shifts: Turnos asignados del servicio
+  modify_service_blocks: Modificar bloques para el servicio
+  devise:
+    sign_out: Cerrar sesión
+    sign_in: Iniciar sesión
+    sign_up: Iniciar sesión
+    password: Contraseña
+    password_confirmation: Confirmación de contraseña
+    remember_me: Recordarme
+    forgot_password: Olvidaste tu contraseña?
+    confirmation_instructions: No has recibido las instrucciones de confirmación ?
+    unlock_instructions: No has recibido las instrucciones de desbloqueo ?
+

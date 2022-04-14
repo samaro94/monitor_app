@@ -36,12 +36,7 @@ class AssignShiftsService
                 # if the previous day has not assign or is the first day of week or the previous assign is not on the list of availables
                 if last_assign.blank? || !availabilities.pluck(:user_id).uniq.include?(last_assign)
                     # get user with more time available
-                    begin
                     user_id = @day_availabilities.select{|k,v| availabilities.pluck(:user_id).include?(k)}.max_by{|k,v| v}.first
-                    rescue
-                        
-                        binding.pry
-                    end
 
                     new_shift = save_shift(service_id, block.week_day, block_hour, user_id)
                     last_assign = user_id #recognize wich user was the previous asssigned

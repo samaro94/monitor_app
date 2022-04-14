@@ -37,8 +37,6 @@ class ConfigurateBlocksService
             block = blocks.select{|x| x.week_day.to_s == day.to_s}.first
             next if block.blank?
             
-            # binding.pry
-            
             data[day] = {from: block.from.strftime('%H:%M'), to: block.to.strftime('%H:%M')}
         end
 

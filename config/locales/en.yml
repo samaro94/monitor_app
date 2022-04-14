@@ -36,7 +36,7 @@ en:
   name: Name
   lastname: Lastname
   search: Search
-  filter: Filtrar
+  filter: Filter
   services_list: List of services
   add_service: Add service
   new_service: New service
@@ -54,7 +54,11 @@ en:
   edit_availability: Edit availability
   save_changes: Save changes
   service_details: Service details
-  modify_service_blocks: Modify service blocks for
+  service_availability: Service availability
+  service_shifts: Service shifts
+  show_service_availability: Show service availability
+  show_service_shifts: Show service shifts
+  modify_service_blocks: Modify blocks for service
   devise:
     sign_out: Sign out
     sign_in: Sign in
