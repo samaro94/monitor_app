@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'get_list'
       get ':id/change_status', action: 'change_status'
+      get ':id/update_shifts', action: 'update_shifts'
     end
   end
 

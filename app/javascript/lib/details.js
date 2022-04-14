@@ -70,6 +70,14 @@ if (document.querySelector(id) != null) {
                     // })
                 }).catch(error => console.log(error));
             },
+            async updateShift(id) {
+                var url = "/services/:id/update_shifts".replace(':id', id)
+                await fetch(url, {
+                    method: 'GET'
+                })
+                .then(response => response.json())
+                .catch(error => console.log(error));
+            },
             initializeTabs() {
                 var tabs_content = document.querySelectorAll(".tab-pane")
                 tabs_content.forEach(element => {

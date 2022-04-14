@@ -86,6 +86,12 @@ class ServicesController < ApplicationController
     end
   end
 
+  def update_shifts
+    AssignShiftsService.by_service(params[:service_id])
+
+    redirect_to services_path, notice: "Service was successfully updated."
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service

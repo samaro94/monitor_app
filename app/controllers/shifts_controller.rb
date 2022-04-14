@@ -5,6 +5,7 @@ class ShiftsController < ApplicationController
   def index
     @shift_type = params[:shift_type]
     @show_button = params[:shift_type] == "availability" ? true : false
+    @show_update_shifts = params[:shift_type] == "service_shifts" ? true : false
     @service = Service.find_by_id(params[:service_id])
   end
 

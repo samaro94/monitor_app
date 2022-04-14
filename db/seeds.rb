@@ -57,3 +57,7 @@ user3 = User.find_by_name("Benjamin")
         Availability.find_or_create_by(user_id: user3.id, week_day: day, hour: hour)
     end
 end
+
+AssignShiftsService.by_service(service.id)
+
+puts true

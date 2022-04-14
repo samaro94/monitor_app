@@ -59,6 +59,7 @@ en:
   show_service_availability: Show service availability
   show_service_shifts: Show service shifts
   modify_service_blocks: Modify blocks for service
+  update_shifts: Update shifts
   devise:
     sign_out: Sign out
     sign_in: Sign in

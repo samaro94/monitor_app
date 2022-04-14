@@ -20,7 +20,7 @@ Things you may want to cover:
 
 * Database initialization
     
-        bin/bash rails db:seeds
+        bin/bash rails db:seed
 
 * Services (job queues, cache servers, search engines, etc.)
 

@@ -4,18 +4,29 @@
   <div class="divider"></div>
 
     <% if @show_button %>
-    <div class="row my-4">
-        <div class="d-flex offset-6 col-6 justify-content-end">
-            <button v-if="editable" class= "btn btn-primary secondary-color col-3" @click="SaveChanges()">
-                <%= icon_tag('save') %>
-                <%= I18n.t('save_changes') %>
-            </button>
-            <button v-else class= "btn btn-primary secondary-color col-3" @click="makeEditable()">
-                <%= icon_tag('pencil') %>
-                <%= I18n.t('edit_availability') %>
-            </button>
+        <div class="row my-4">
+            <div class="d-flex offset-6 col-6 justify-content-end">
+                <button v-if="editable" class= "btn btn-primary secondary-color col-3" @click="SaveChanges()">
+                    <%= icon_tag('save') %>
+                    <%= I18n.t('save_changes') %>
+                </button>
+                <button v-else class= "btn btn-primary secondary-color col-3" @click="makeEditable()">
+                    <%= icon_tag('pencil') %>
+                    <%= I18n.t('edit_availability') %>
+                </button>
+            </div>
         </div>
-    </div>
+    <% end %>
+
+    <% if @show_update_shifts %>
+        <div class="row my-4">
+            <div class="d-flex offset-6 col-6 justify-content-end">
+                <button class= "btn btn-primary secondary-color col-3" @click="updateShift(<%= @service.id %>)">
+                    <%= icon_tag('save') %>
+                    <%= I18n.t('update_shifts') %>
+                </button>
+            </div>
+        </div>
     <% end %>
 
 
